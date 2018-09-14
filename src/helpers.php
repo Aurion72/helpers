@@ -12,7 +12,7 @@ if (!function_exists('lts')) {
      * @return mixed
      */
     function lts()
-    {
+    { 
         return HelpersDebug::loadingTimeStart();
     }
 }
