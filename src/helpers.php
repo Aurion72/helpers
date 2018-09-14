@@ -1,6 +1,11 @@
 <?php
 
 use Aurion72\Helpers\Helpers;
+use Aurion72\Helpers\HelpersDebug;
+use Aurion72\Helpers\HelpersMedia;
+use Aurion72\Helpers\HelpersMisc;
+use Aurion72\Helpers\HelpersNumbers;
+use Aurion72\Helpers\HelpersStrings;
 use Illuminate\Database\Eloquent\Model;
 
 if (!function_exists('lts')) {
@@ -9,7 +14,7 @@ if (!function_exists('lts')) {
      */
     function lts()
     {
-        return Helpers::loadingTimeStart();
+        return HelpersDebug::loadingTimeStart();
     }
 }
 
@@ -20,7 +25,7 @@ if (!function_exists('lte')) {
      */
     function lte($die = true)
     {
-        return Helpers::loadingTimeEnd($die);
+        return HelpersDebug::loadingTimeEnd($die);
     }
 }
 
@@ -34,7 +39,7 @@ if (!function_exists('boolToString')) {
      */
     function boolToString($value, $true_string = null, $false_string = null, $locale = null)
     {
-        return Helpers::boolToString($value, $true_string, $false_string, $locale);
+        return HelpersStrings::boolToString($value, $true_string, $false_string, $locale);
     }
 }
 
@@ -48,7 +53,7 @@ if (!function_exists('boolToColorizedString')) {
      */
     function boolToColorizedString($value, $true_string = null, $false_string = null, $locale = null)
     {
-        return Helpers::boolToColorizedString($value, $true_string, $false_string, $locale);
+        return HelpersStrings::boolToColorizedString($value, $true_string, $false_string, $locale);
     }
 }
 
@@ -59,7 +64,7 @@ if (!function_exists('rawSql')) {
      */
     function rawSql($builder)
     {
-        return Helpers::rawSql($builder);
+        return HelpersDebug::rawSql($builder);
     }
 }
 
@@ -71,7 +76,7 @@ if (!function_exists('formatPrice')) {
      */
     function formatPrice($price, $currency_sign = true)
     {
-        return Helpers::formatPrice($price, $currency_sign);
+        return HelpersStrings::formatPrice($price, $currency_sign);
     }
 }
 
@@ -83,19 +88,7 @@ if (!function_exists('formatPercent')) {
      */
     function formatPercent($percent, $precision = 2, $percent_sign = true)
     {
-        return Helpers::formatPercent($percent, $precision, $percent_sign);
-    }
-}
-
-if (!function_exists('getNestedRelationships')) {
-    /**
-     * @param $model
-     * @param $relations
-     * @return \Illuminate\Support\Collection
-     */
-    function getNestedRelationships($model, $relations)
-    {
-        return Helpers::getNestedRelationships($model, $relations);
+        return HelpersStrings::formatPercent($percent, $precision, $percent_sign);
     }
 }
 
@@ -107,7 +100,7 @@ if (!function_exists('makeFileName')) {
      */
     function makeFileName(Model $model, string $name_attribute = 'name')
     {
-        return Helpers::makeFileName($model, $name_attribute);
+        return HelpersStrings::makeFileName($model, $name_attribute);
     }
 }
 
@@ -120,7 +113,7 @@ if (!function_exists('displayImage')) {
      */
     function displayImage(?string $path = null, ?int $width = null, ?int $height = null)
     {
-        return $path ? Helpers::displayImage($path, $width, $height) : 'https://via.placeholder.com/'.($width ? $width : 40).'x'.($width ? $width : 40);
+        return $path ? HelpersMedia::displayImage($path, $width, $height) : 'https://via.placeholder.com/'.($width ? $width : 40).'x'.($width ? $width : 40);
     }
 }
 
@@ -131,27 +124,7 @@ if (!function_exists('randomBoolean')) {
      */
     function randomBoolean($chance_of_true = 50)
     {
-        return Helpers::randomBoolean($chance_of_true);
-    }
-}
-
-if (!function_exists('getDummyImageListAsArray')) {
-    /**
-     * @return array
-     */
-    function getDummyImageListAsArray()
-    {
-        return Helpers::getDummyImageListAsArray();
-    }
-}
-
-if (!function_exists('getRandomDummyImage')) {
-    /**
-     * @return \Illuminate\Http\UploadedFile|string
-     */
-    function getRandomDummyImage()
-    {
-        return Helpers::getRandomDummyImage();
+        return HelpersNumbers::randomBoolean($chance_of_true);
     }
 }
 
@@ -163,7 +136,7 @@ if (!function_exists('randomPassword')) {
      */
     function randomPassword($length, $caps = true)
     {
-        return Helpers::randomPassword($length, $caps);
+        return HelpersStrings::randomPassword($length, $caps);
     }
 }
 
@@ -176,7 +149,7 @@ if (!function_exists('addSign')) {
      */
     function addSign($value, $minus_only = false)
     {
-        return Helpers::addSign($value, $minus_only);
+        return HelpersNumbers::addSign($value, $minus_only);
     }
 }
 
@@ -187,7 +160,7 @@ if (!function_exists('getAction')) {
      */
     function getAction($keep_namespace = false)
     {
-        return Helpers::getAction($keep_namespace);
+        return HelpersMisc::getAction($keep_namespace);
     }
 }
 
@@ -198,6 +171,6 @@ if (!function_exists('rmdirRecursive')) {
      */
     function rmdirRecursive($dir)
     {
-        Helpers::rmdirRecursive($dir);
+        HelpersMedia::rmdirRecursive($dir);
     }
 }

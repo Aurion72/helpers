@@ -1,86 +1,12 @@
 <?php namespace Aurion72\Helpers;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
-use Croppa;
-
 /**
  * Class Helpers
  *
  * @package App\Helpers
  */
-class Helpers
+class HelpersStrings
 {
-    /**
-     * @var int
-     */
-    private static $start_microtime = 0;
-
-    /*
-     * DATABASE
-     */
-
-    /**
-     * Return Raw SQL from Query Builder
-     *
-     * @param $builder
-     * @return mixed|null|string|string[]
-     */
-    public static function rawSql($builder)
-    {
-        $transform = [];
-        $sql = $builder->toSql();
-        $bindings = $builder->getBindings();
-
-        foreach ($bindings as $binding) {
-            $value = is_numeric($binding) ? $binding : "'".$binding."'";
-            $sql = preg_replace('/\?/', $value, $sql, 1);
-        }
-
-        $database = env('DB_DATABASE');
-        if (count($transform) > 0) {
-            foreach ($transform as $key => $i) {
-                $sql = str_replace("from `$key`", "from `$database`.`$key`", $sql);
-            }
-        }
-
-        return $sql;
-    }
-
-    /*
-     * DEBUG
-     */
-
-    /**
-     * Start counting loading time
-     *
-     * @return mixed
-     */
-    public static function loadingTimeStart()
-    {
-        static::$start_microtime = microtime(true);
-
-        return static::$start_microtime;
-    }
-
-    /**
-     * Save loading time
-     *
-     * @param bool $die
-     * @return int|mixed
-     */
-    public static function loadingTimeEnd($die = true)
-    {
-        $result = microtime(true) - static::$start_microtime;
-        if ($die) dd($result);
-
-        return $result;
-    }
-
-    /*
-     * STRINGS
-     */
-
     /**
      * Transform a value to a string.
      *
@@ -115,8 +41,7 @@ class Helpers
         return (bool) $value ? '<span class="text-success">'.$string.'</span>' : '<span class="text-danger">'.$string.'</span>';
     }
 
-
-/**
+    /**
      * Turn a number into a currency formatted string
      *
      * @param $price
@@ -140,7 +65,6 @@ class Helpers
     {
         return is_null($percent) || is_string($percent) ? $percent : number_format($percent, $precision, ',', ' ').($percent_sign ? ' %' : '');
     }
-
 
     /**
      * Make a filename from a Model instance
@@ -181,75 +105,4 @@ class Helpers
 
         return $pass;
     }
-
-    /*
-     * MEDIA
-     */
-
-    /**
-     * Display and crop public image (using Croppa)
-     *
-     * @param $path
-     * @param null $width
-     * @param null $height
-     * @return string
-     */
-    public static function displayImage($path, $width = null, $height = null)
-    {
-        return (string) Croppa::url(Storage::url($path), $width, $height);
-    }
-
-    /*
-     * Remove directories with files, recursively
-     *
-     * @param $dir
-     */
-    public static function rmdirRecursive($dir)
-    {
-        foreach (scandir($dir) as $file) {
-            if ('.' === $file || '..' === $file) continue;
-            if (is_dir("$dir/$file")) static::rmdirRecursive("$dir/$file"); else unlink("$dir/$file");
-        }
-        rmdir($dir);
-    }
-
-    /*
-     * NUMBERS
-     */
-
-    /**
-     * Return a boolean with a random factor
-     *
-     * @param int $chance_of_true
-     * @return bool
-     */
-    public static function randomBoolean($chance_of_true = 50)
-    {
-        $is_true = rand(1, 100);
-
-        return $chance_of_true >= $is_true;
-    }
-
-
-
-    /**
-     * Add a sign to a number
-     *
-     * @param $value
-     * @param bool $minus_only
-     * @return string
-     */
-    public static function addSign($value, $minus_only = false)
-    {
-        $value_floated = floatval($value);
-        if ($value_floated < 0) {
-            return $minus_only ? $value : "+ $value";
-        } else {
-            return "- $value";
-        }
-    }
-
-
-
-
 }
