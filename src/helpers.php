@@ -71,10 +71,10 @@ if (!function_exists('rawSql')) {
 if (!function_exists('formatPrice')) {
     /**
      * @param $price
-     * @param bool $currency_sign
+     * @param string $currency_sign
      * @return string
      */
-    function formatPrice($price, $currency_sign = true)
+    function formatPrice($price, $currency_sign = ' €')
     {
         return HelpersStrings::formatPrice($price, $currency_sign);
     }
