@@ -1,6 +1,5 @@
 <?php
 
-use Aurion72\Helpers\Helpers;
 use Aurion72\Helpers\HelpersDebug;
 use Aurion72\Helpers\HelpersMedia;
 use Aurion72\Helpers\HelpersMisc;
