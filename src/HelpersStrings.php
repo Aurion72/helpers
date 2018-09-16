@@ -70,22 +70,6 @@ class HelpersStrings
     }
 
     /**
-     * Make a filename from a Model instance
-     *
-     * @param \Illuminate\Database\Eloquent\Model $model
-     * @param string $name_attribute
-     * @return null|string
-     */
-    public static function makeFileName(Model $model, string $name_attribute = 'name')
-    {
-        $name = $model->$name_attribute;
-
-        if (!$name) $name = $model->__name;
-
-        return $name ? str_slug($name.'-'.$model->id.'-'.uniqid()) : null;
-    }
-
-    /**
      * Generate a random password
      *
      * @param $length

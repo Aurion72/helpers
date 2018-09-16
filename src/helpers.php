@@ -91,18 +91,6 @@ if (!function_exists('formatPercent')) {
     }
 }
 
-if (!function_exists('makeFileName')) {
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $model
-     * @param string $name_attribute
-     * @return null|string
-     */
-    function makeFileName(Model $model, string $name_attribute = 'name')
-    {
-        return HelpersStrings::makeFileName($model, $name_attribute);
-    }
-}
-
 if (!function_exists('displayImage')) {
     /**
      * @param $path
