@@ -7,7 +7,6 @@
  */
 class HelpersNumbers
 {
-
     /*
      * NUMBERS
      */
@@ -25,8 +24,6 @@ class HelpersNumbers
         return $chance_of_true >= $is_true;
     }
 
-
-
     /**
      * Add a sign to a number
      *
@@ -36,13 +33,13 @@ class HelpersNumbers
      */
     public static function addSign($value, $minus_only = false)
     {
-        $value_floated = floatval($value);
-        if ($value_floated < 0) {
-            return $minus_only ? $value : "+ $value";
+        $value = trim($value);
+        $value_floated = floatval(str_replace(' ','',$value));
+
+        if ($value_floated > 0) {
+            return $minus_only ? $value_floated : "+ $value_floated";
         } else {
-            return "- $value";
+            return "- ".abs($value_floated);
         }
     }
-
-
 }

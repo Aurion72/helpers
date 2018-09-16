@@ -52,6 +52,7 @@ class HelpersStrings
      */
     public static function formatPrice($price, $currency_sign = ' €')
     {
+
         return is_null($price) ? '-' : number_format($price, 2, ',', ' ').($currency_sign ? $currency_sign : '');
     }
 

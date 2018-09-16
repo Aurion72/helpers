@@ -152,17 +152,6 @@ if (!function_exists('addSign')) {
     }
 }
 
-if (!function_exists('getAction')) {
-    /**
-     * @param bool $keep_namespace
-     * @return mixed|string
-     */
-    function getAction($keep_namespace = false)
-    {
-        return HelpersMisc::getAction($keep_namespace);
-    }
-}
-
 if (!function_exists('rmdirRecursive')) {
 
     /**

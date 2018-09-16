@@ -1,22 +1,10 @@
 <?php namespace Aurion72\Helpers;
 
+use Illuminate\Http\Request;
+
 class HelpersMisc
 {
-    /**
-     * Get the current action
-     *
-     * @param bool $keep_namespace
-     * @return mixed|string
+    /*
+     * For further misc helpers
      */
-    public static function getAction($keep_namespace = false)
-    {
-        if ($keep_namespace) {
-            return request()->route()->getActionName();
-        }
-        $action = request()->route()->getAction();
-        $namespace = $action['namespace'];
-        $controller = $action['controller'];
-
-        return str_replace($namespace.'\\', '', $controller);
-    }
 }
