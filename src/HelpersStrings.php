@@ -1,5 +1,7 @@
 <?php namespace Aurion72\Helpers;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Class Helpers
  *
