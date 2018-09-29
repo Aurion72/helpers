@@ -52,6 +52,7 @@ class HelpersStrings
      */
     public static function formatPrice($price, $currency_sign = ' €')
     {
+
         return is_null($price) ? '-' : number_format($price, 2, ',', ' ').($currency_sign ? $currency_sign : '');
     }
 
@@ -66,22 +67,6 @@ class HelpersStrings
     public static function formatPercent($percent, $precision = 2, $percent_sign = true)
     {
         return is_null($percent) || is_string($percent) ? $percent : number_format($percent, $precision, ',', ' ').($percent_sign ? ' %' : '');
-    }
-
-    /**
-     * Make a filename from a Model instance
-     *
-     * @param \Illuminate\Database\Eloquent\Model $model
-     * @param string $name_attribute
-     * @return null|string
-     */
-    public static function makeFileName(Model $model, string $name_attribute = 'name')
-    {
-        $name = $model->$name_attribute;
-
-        if (!$name) $name = $model->__name;
-
-        return $name ? str_slug($name.'-'.$model->id.'-'.uniqid()) : null;
     }
 
     /**

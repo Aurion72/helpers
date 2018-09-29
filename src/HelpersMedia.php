@@ -1,7 +1,7 @@
 <?php namespace Aurion72\Helpers;
 
 use Illuminate\Support\Facades\Storage;
-use Croppa;
+use Bkwld\Croppa\Facade as Croppa;
 
 /**
  * Class Helpers
