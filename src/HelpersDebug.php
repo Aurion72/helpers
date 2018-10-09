@@ -62,7 +62,7 @@ class HelpersDebug
     {
         $start_microtime = $override_start_microtime ?: static::$start_microtime;
         $result = microtime(true) - $start_microtime;
-        if ($die) dd($result); 
+        if ($die) dd($result);
 
         return $result;
     }

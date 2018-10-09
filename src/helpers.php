@@ -20,11 +20,12 @@ if (!function_exists('lts')) {
 if (!function_exists('lte')) {
     /**
      * @param bool $die
+     * @param float|null $override_start_microtime
      * @return mixed
      */
-    function lte($die = true)
+    function lte($die = true, float $override_start_microtime = null)
     {
-        return HelpersDebug::loadingTimeEnd($die);
+        return HelpersDebug::loadingTimeEnd($die, $override_start_microtime);
     }
 }
 
