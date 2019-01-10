@@ -41,4 +41,17 @@ class HelpersMedia
         rmdir($dir);
     }
 
+    /**
+     * Convert a string to a hexadecimal color
+     *
+     * @param string $string
+     * @return string
+     */
+    public static function stringToHexColor(string $string): string
+    {
+        $code = dechex(crc32($string));
+        $code = substr($code, 0, 6);
+
+        return $code;
+    }
 }

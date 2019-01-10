@@ -11,4 +11,12 @@ class HelpersMediaTest extends HelpersTest
         $expectedUrl = '/storage/path/to/image-200x400.jpg';
         $this->assertEquals($expectedUrl, displayImage($path, 200, 400));
     }
+
+    public function test_string_is_converted_to_hex_color()
+    {
+        $string = 'Hello world';
+        $color = '4a17b1';
+        
+        $this->assertEquals($color, stringToHexColor($string));
+    }
 }

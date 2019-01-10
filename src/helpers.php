@@ -151,3 +151,15 @@ if (!function_exists('rmdirRecursive')) {
         HelpersMedia::rmdirRecursive($dir);
     }
 }
+
+if (!function_exists('stringToHexColor')) {
+
+    /**
+     * @param string $dir
+     * @return string
+     */
+    function stringToHexColor(string $dir): string
+    {
+        return HelpersMedia::stringToHexColor($dir);
+    }
+}
