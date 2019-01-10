@@ -30,6 +30,8 @@ Helpers is a general purpose package with some useful helper functions.
 
 `rmdirRecursive($dir)` : Recursively remove directories and files
 
+`stringToHexColor($string)` : Convert a string to a color in hexadecimal format
+
 **numbers**
 
 `randomBoolean($chance_of_true = 50)` : Return a boolean with a random factor

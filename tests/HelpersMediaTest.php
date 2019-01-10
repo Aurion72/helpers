@@ -14,7 +14,7 @@ class HelpersMediaTest extends HelpersTest
 
     public function test_string_is_converted_to_hex_color()
     {
-        $string = 'Hello world';
+        $string = 'Hello World';
         $color = '4a17b1';
         
         $this->assertEquals($color, stringToHexColor($string));
