@@ -50,10 +50,12 @@ class HelpersStrings
      * @param string $currency_sign
      * @return string
      */
-    public static function formatPrice($price, $currency_sign = ' €')
+    public static function formatPrice($price, $currency_sign = ' €', $invert = false)
     {
+        $sign = ($currency_sign ? $currency_sign : '');
+        $price = is_null($price) ? '-' : number_format($price, 2, ',', ' ');
 
-        return is_null($price) ? '-' : number_format($price, 2, ',', ' ').($currency_sign ? $currency_sign : '');
+        return $invert ? $sign.$price : $price.$sign;
     }
 
     /**
