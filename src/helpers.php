@@ -20,12 +20,11 @@ if (!function_exists('lts')) {
 if (!function_exists('lte')) {
     /**
      * @param bool $die
-     * @param float|null $override_start_microtime
      * @return mixed
      */
-    function lte($die = true, float $override_start_microtime = null)
+    function lte($die = true)
     {
-        return HelpersDebug::loadingTimeEnd($die, $override_start_microtime);
+        return HelpersDebug::loadingTimeEnd($die);
     }
 }
 
@@ -72,11 +71,12 @@ if (!function_exists('formatPrice')) {
     /**
      * @param $price
      * @param string $currency_sign
+     * @param boolean $invert
      * @return string
      */
-    function formatPrice($price, $currency_sign = ' €')
+    function formatPrice($price, $currency_sign = ' €', $invert = false)
     {
-        return HelpersStrings::formatPrice($price, $currency_sign);
+        return HelpersStrings::formatPrice($price, $currency_sign, $invert);
     }
 }
 
@@ -101,7 +101,7 @@ if (!function_exists('displayImage')) {
      */
     function displayImage(?string $path = null, ?int $width = null, ?int $height = null)
     {
-        return $path ? HelpersMedia::displayImage($path, $width, $height) : 'https://via.placeholder.com/'.($width ? $width : 40).'x'.($height ? $height : 40);
+        return $path ? HelpersMedia::displayImage($path, $width, $height) : 'https://via.placeholder.com/'.($width ? $width : 40).'x'.($width ? $width : 40);
     }
 }
 
@@ -149,17 +149,5 @@ if (!function_exists('rmdirRecursive')) {
     function rmdirRecursive($dir)
     {
         HelpersMedia::rmdirRecursive($dir);
-    }
-}
-
-if (!function_exists('stringToHexColor')) {
-
-    /**
-     * @param string $dir
-     * @return string
-     */
-    function stringToHexColor(string $dir): string
-    {
-        return HelpersMedia::stringToHexColor($dir);
     }
 }
