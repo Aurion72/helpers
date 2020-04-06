@@ -20,7 +20,7 @@
   ],
   "require": {
     "php": ">=7.2",
-    "illuminate/support": "^5.6|^6.0",
+    "illuminate/support": "^5.6|^6.0|^7.0",
     "bkwld/croppa": "dev-master"
   },
   "require-dev": {
