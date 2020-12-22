@@ -169,10 +169,11 @@ if (!function_exists('arrayDepthCount')) {
     /**
      * @param  array  $array
      * @param  string  $key
+     * @param  bool  $must_contains_data
      * @return string
      */
-    function arrayDepthCount(array $array, string $key): string
+    function arrayDepthCount(array $array, string $key, bool $must_contains_data = true): string
     {
-        return HelpersArrays::arrayDepthCount($array, $key);
+        return HelpersArrays::arrayDepthCount($array, $key, $must_contains_data);
     }
 }

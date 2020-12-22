@@ -10,7 +10,9 @@ class HelpersArraysTest extends HelpersTest
 
         $array_depth_1 = [
             'depth' => [
+                'depth' => [
 
+                ]
             ]
         ];
 
@@ -38,9 +40,13 @@ class HelpersArraysTest extends HelpersTest
             ]
         ];
 
-        $this->assertTrue(arrayDepthCount($array_depth_0, 'depth') == 0);
-        $this->assertTrue(arrayDepthCount($array_depth_1, 'depth') == 1);
-        $this->assertTrue(arrayDepthCount($array_depth_3, 'depth') == 3);
-        $this->assertTrue(arrayDepthCount($array_depth_5, 'depth') == 5);
+        $this->assertTrue(arrayDepthCount($array_depth_0, 'depth', false) == 0);
+        $this->assertTrue(arrayDepthCount($array_depth_0, 'depth', true) == 0);
+        $this->assertTrue(arrayDepthCount($array_depth_1, 'depth', false) == 2);
+        $this->assertTrue(arrayDepthCount($array_depth_1, 'depth', true) == 1);
+        $this->assertTrue(arrayDepthCount($array_depth_3, 'depth', false) == 3);
+        $this->assertTrue(arrayDepthCount($array_depth_3, 'depth', true) == 2);
+        $this->assertTrue(arrayDepthCount($array_depth_5, 'depth', true) == 4);
+        $this->assertTrue(arrayDepthCount($array_depth_5, 'depth', false) == 5);
     }
 }

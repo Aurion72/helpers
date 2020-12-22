@@ -11,7 +11,7 @@ class HelpersArrays
      * Arrays
      */
 
-    public static function arrayDepthCount(array $array, string $key)
+    public static function arrayDepthCount(array $array, string $key, bool $must_contains_data = true)
     {
         $max_depth = 0;
 
@@ -19,7 +19,11 @@ class HelpersArrays
             return $max_depth;
         }
 
-        $depth = static::arrayDepthCount($array[$key], $key) + 1;
+        if($must_contains_data && count($array[$key]) == 0){
+            return $max_depth;
+        }
+
+        $depth = static::arrayDepthCount($array[$key], $key, $must_contains_data) + 1;
 
         if ($depth > $max_depth) {
             $max_depth = $depth;
