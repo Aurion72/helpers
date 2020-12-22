@@ -1,11 +1,12 @@
 <?php
 
+use Aurion72\Helpers\HelpersArrays;
 use Aurion72\Helpers\HelpersDebug;
 use Aurion72\Helpers\HelpersMedia;
-use Aurion72\Helpers\HelpersMisc;
 use Aurion72\Helpers\HelpersNumbers;
 use Aurion72\Helpers\HelpersStrings;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\UploadedFile;
 
 if (!function_exists('lts')) {
     /**
@@ -34,7 +35,7 @@ if (!function_exists('boolToString')) {
      * @param null $true_string
      * @param null $false_string
      * @param null $locale
-     * @return \Illuminate\Foundation\Application|mixed
+     * @return Application|mixed
      */
     function boolToString($value, $true_string = null, $false_string = null, $locale = null)
     {
@@ -120,7 +121,7 @@ if (!function_exists('randomPassword')) {
     /**
      * @param $length
      * @param bool $caps
-     * @return \Illuminate\Http\UploadedFile|string
+     * @return UploadedFile|string
      */
     function randomPassword($length, $caps = true)
     {
@@ -160,5 +161,18 @@ if (!function_exists('stringToHexColor')) {
     function stringToHexColor(string $dir): string
     {
         return HelpersMedia::stringToHexColor($dir);
+    }
+}
+
+
+if (!function_exists('arrayDepthCount')) {
+    /**
+     * @param  array  $array
+     * @param  string  $key
+     * @return string
+     */
+    function arrayDepthCount(array $array, string $key): string
+    {
+        return HelpersArrays::arrayDepthCount($array, $key);
     }
 }
