@@ -19,7 +19,7 @@ class HelpersArrays
             return $max_depth;
         }
 
-        if($must_contains_data && count($array[$key]) == 0){
+        if ($must_contains_data && count($array[$key]) == 0) {
             return $max_depth;
         }
 
@@ -27,6 +27,31 @@ class HelpersArrays
 
         if ($depth > $max_depth) {
             $max_depth = $depth;
+        }
+
+        return $max_depth;
+    }
+
+    /*
+     * Arrays
+     */
+
+    public static function arrayDepthMultiCount(array $array, string $key)
+    {
+        $max_depth = 0;
+
+        foreach ($array as $value) {
+            if (is_array($value)) {
+                if (array_key_exists($key, $value)) {
+                    $count = static::arrayDepthMultiCount($value, $key) + 1;
+                } else {
+                    $count = static::arrayDepthMultiCount($value, $key);
+                }
+
+                if ($count > $max_depth) {
+                    $max_depth = $count;
+                }
+            }
         }
 
         return $max_depth;

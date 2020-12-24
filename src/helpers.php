@@ -177,3 +177,15 @@ if (!function_exists('arrayDepthCount')) {
         return HelpersArrays::arrayDepthCount($array, $key, $must_contains_data);
     }
 }
+
+if (!function_exists('arrayDepthMultiCount')) {
+    /**
+     * @param  array  $array
+     * @param  string  $key
+     * @return string
+     */
+    function arrayDepthMultiCount(array $array, string $key): string
+    {
+        return HelpersArrays::arrayDepthMultiCount($array, $key);
+    }
+}

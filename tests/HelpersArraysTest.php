@@ -49,4 +49,86 @@ class HelpersArraysTest extends HelpersTest
         $this->assertTrue(arrayDepthCount($array_depth_5, 'depth', true) == 4);
         $this->assertTrue(arrayDepthCount($array_depth_5, 'depth', false) == 5);
     }
+
+    public function test_array_depth_multi_is_correctly_calculated()
+    {
+        $array_depth_0 = [
+
+        ];
+
+        $array_depth_3 = [
+            'depth' => [
+                [
+                    'depth' => [
+
+                    ]
+                ],
+                [
+                    'depth' => [
+
+                        [
+                            'depth' => [
+
+                            ]
+                        ]
+                    ],
+                ],
+                [
+                    'depth' => [
+
+                        [
+                            'depth' => [
+                                [
+                                    'depth' => [
+
+                                    ]
+                                ],
+                            ]
+                        ],
+                        [
+                            'depth' => [
+
+                            ]
+                        ]
+                    ],
+                ]
+            ]
+        ];
+
+        $array_depth_5 = [
+            'depth' => [
+                [
+                    'depth' => [
+
+                    ]
+                ],
+                [
+                    'depth' => [
+
+                        [
+                            'depth' => [
+                                [
+                                    'depth' => [
+                                        [
+                                            'depth' => [
+                                                [
+                                                    'depth' => [
+
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                ]
+            ]
+        ];
+
+        $this->assertTrue(arrayDepthMultiCount($array_depth_0, 'depth') == 0);
+        $this->assertTrue(arrayDepthMultiCount($array_depth_3, 'depth') == 3);
+        $this->assertTrue(arrayDepthMultiCount($array_depth_5, 'depth') == 5);
+    }
 }
