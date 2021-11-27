@@ -17,9 +17,9 @@ class HelpersNumbers
      * @param int $chance_of_true
      * @return bool
      */
-    public static function randomBoolean($chance_of_true = 50)
+    public static function randomBoolean($chance_of_true = 50, $max = 100)
     {
-        $is_true = rand(1, 100);
+        $is_true = rand(1, $max);
 
         return $chance_of_true >= $is_true;
     }
