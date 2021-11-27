@@ -111,9 +111,9 @@ if (!function_exists('randomBoolean')) {
      * @param int $chance_of_true
      * @return bool
      */
-    function randomBoolean($chance_of_true = 50)
+    function randomBoolean($chance_of_true = 50, $max = 100)
     {
-        return HelpersNumbers::randomBoolean($chance_of_true);
+        return HelpersNumbers::randomBoolean($chance_of_true, $max);
     }
 }
 
