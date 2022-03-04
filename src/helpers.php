@@ -93,19 +93,6 @@ if (!function_exists('formatPercent')) {
     }
 }
 
-if (!function_exists('displayImage')) {
-    /**
-     * @param $path
-     * @param $width
-     * @param $height
-     * @return string
-     */
-    function displayImage(?string $path = null, ?int $width = null, ?int $height = null)
-    {
-        return $path ? HelpersMedia::displayImage($path, $width, $height) : 'https://via.placeholder.com/'.($width ? $width : 40).'x'.($width ? $width : 40);
-    }
-}
-
 if (!function_exists('randomBoolean')) {
     /**
      * @param int $chance_of_true

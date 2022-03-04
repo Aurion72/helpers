@@ -11,23 +11,6 @@ use Bkwld\Croppa\Facade as Croppa;
 class HelpersMedia
 {
     /*
-     * MEDIA
-     */
-
-    /**
-     * Display and crop public image (using Croppa)
-     *
-     * @param $path
-     * @param null $width
-     * @param null $height
-     * @return string
-     */
-    public static function displayImage($path, $width = null, $height = null)
-    {
-        return (string) Croppa::url(Storage::url($path), $width, $height);
-    }
-
-    /*
      * Remove directories with files, recursively
      *
      * @param $dir

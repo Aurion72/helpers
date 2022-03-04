@@ -26,8 +26,6 @@ Helpers is a general purpose package with some useful helper functions.
 
 **media**
 
-`displayImage($path, $width = null, $height = null)` : Display and crop public image (using Croppa)
-
 `rmdirRecursive($dir)` : Recursively remove directories and files
 
 `stringToHexColor($string)` : Convert a string to a color in hexadecimal format
